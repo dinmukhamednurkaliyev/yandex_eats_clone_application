@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "891193351211",
+    "project_id": "yandex-eats-development",
+    "storage_bucket": "yandex-eats-development.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:891193351211:android:fc2ec0b535e087f2521e6e",
+        "android_client_info": {
+          "package_name": "com.example.yandex_eats_clone_application"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATDGwrHZTkESZGd18e3sf1RmUqAzrRu4g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

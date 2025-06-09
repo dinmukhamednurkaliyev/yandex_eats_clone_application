@@ -7,13 +7,16 @@ environment:
   sdk: ^3.8.0
 
 dependencies:
+  firebase_core: ^3.13.1
   flutter:
     sdk: flutter
+  flutter_bloc: ^9.1.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^5.0.0
+  yandex_flutter_analysis:
+    path: packages/yandex/yandex_flutter_analysis
 
 flutter:
   uses-material-design: true
