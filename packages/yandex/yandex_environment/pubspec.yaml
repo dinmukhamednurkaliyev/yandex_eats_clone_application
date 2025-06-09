@@ -1,0 +1,17 @@
+name: yandex_environment
+description: "A dedicated Flutter package for managing Yandex-specific environment variables and API keys."
+version: 0.0.1
+
+environment:
+  sdk: ^3.8.0
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  yandex_flutter_analysis:
+    path: ../yandex_flutter_analysis

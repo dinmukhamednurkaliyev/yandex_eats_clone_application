@@ -1,0 +1,15 @@
+name: yandex_flutter_analysis
+description: "A collection of opinionated static analysis rules for Dart and Flutter projects, promoting code quality and consistency."
+version: 0.0.1
+
+environment:
+  sdk: ^3.8.0
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
