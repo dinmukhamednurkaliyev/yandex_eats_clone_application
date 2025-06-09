@@ -5,6 +5,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+/// Performs essential initialization and setup for the Flutter application,
+/// including error handling and running the main application widget.
 Future<void> bootstrap({
   required FutureOr<Widget> Function() applicationBuilder,
 }) async {
@@ -24,6 +26,7 @@ Future<void> bootstrap({
   );
 }
 
+/// Observes all BLoC errors and logs them with BLoC type, error, and stack trace.
 class ApplicationBlocObserver extends BlocObserver {
   @override
   void onError(BlocBase<dynamic> bloc, Object error, StackTrace stackTrace) {
