@@ -1,0 +1,17 @@
+name: flutter_error_reporting
+description: "A comprehensive package for handling and reporting errors in Flutter applications."
+version: 0.0.1
+
+environment:
+  sdk: ^3.8.0
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  yandex_flutter_analysis:
+    path: ../yandex/yandex_flutter_analysis
