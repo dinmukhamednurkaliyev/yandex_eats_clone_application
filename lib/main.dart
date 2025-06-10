@@ -1,20 +1,21 @@
-import 'package:flutter/foundation.dart';
+import 'package:flutter_error_reporting/source/source.dart';
 import 'package:yandex_eats_clone_application/bootstrap.dart';
 import 'package:yandex_eats_clone_application/source/source.dart';
 
 Future<void> main() async {
-  await bootstrap(
-    applicationBuilder: () {
-      return const AuthorizationPage();
-    },
-    onInitialize: () async {},
-    errorReporter: _reportError,
-  );
-}
+  final ErrorReporterService errorReporterService = DebugErrorReporter();
+  final Initializer initializer = () async {
+    await errorReporterService.initialize(
+      ErrorReporterOptions(enableInDebugMode: true),
+    );
+  };
+  final applicationBuilder = () {
+    return const AuthorizationPage();
+  };
 
-void _reportError(Object error, StackTrace stackTrace) {
-  debugPrint('--- Error reported to external service ---');
-  debugPrint('Error: $error');
-  debugPrint('StackTrace: $stackTrace');
-  debugPrint('-----------------------------------------');
+  await bootstrap(
+    applicationBuilder: applicationBuilder,
+    onInitialize: initializer,
+    errorReporter: errorReporterService.reportError,
+  );
 }
