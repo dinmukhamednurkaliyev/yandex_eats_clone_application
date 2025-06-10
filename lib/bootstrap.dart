@@ -22,7 +22,6 @@ Future<void> bootstrap({
   Initializer? onInitialize,
   ErrorReporter? errorReporter,
 }) async {
-  WidgetsFlutterBinding.ensureInitialized();
   FlutterError.onError = (details) {
     log(details.exceptionAsString(), stackTrace: details.stack);
     errorReporter?.call(details.exception, details.stack ?? StackTrace.empty);
@@ -30,6 +29,7 @@ Future<void> bootstrap({
 
   await runZonedGuarded(
     () async {
+      WidgetsFlutterBinding.ensureInitialized();
       Bloc.observer = ApplicationBlocObserver();
       await onInitialize?.call();
       runApp(await applicationBuilder());
