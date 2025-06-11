@@ -94,6 +94,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "9.1.1"
+  flutter_bootstrapper:
+    dependency: "direct main"
+    description:
+      path: "packages/flutter_bootstrapper"
+      relative: true
+    source: path
+    version: "0.0.1"
   flutter_error_reporting:
     dependency: "direct main"
     description:
@@ -283,5 +290,5 @@ packages:
     source: path
     version: "0.0.1"
 sdks:
-  dart: ">=3.8.0 <4.0.0"
+  dart: ">=3.8.1 <4.0.0"
   flutter: ">=3.22.0"
