@@ -23,8 +23,6 @@ Future<void> bootstrap({
   required ErrorReporterService errorReporterService,
   Initializer? onInitialize,
 }) async {
-  WidgetsFlutterBinding.ensureInitialized();
-
   FlutterError.onError = (details) {
     ApplicationLogger.instance.error(
       'Caught Flutter framework error:',
@@ -39,6 +37,7 @@ Future<void> bootstrap({
 
   await runZonedGuarded(
     () async {
+      WidgetsFlutterBinding.ensureInitialized();
       Bloc.observer = ApplicationBlocObserver(
         errorReporterService: errorReporterService,
       );
