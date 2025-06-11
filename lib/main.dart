@@ -25,7 +25,7 @@ Future<void> main() async {
     );
   };
   final applicationBuilder = () {
-    return const AuthorizationPage();
+    return const ApplicationPage();
   };
 
   await applicationBootstrapper.run(
