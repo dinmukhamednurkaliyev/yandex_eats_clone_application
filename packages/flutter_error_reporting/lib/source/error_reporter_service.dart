@@ -16,11 +16,11 @@ abstract class ErrorReporterService {
   /// Captures and reports a custom message.
   ///
   /// [message] is the string message to report.
-  /// [severity] indicates the severity level of the message (e.g., info, warning, error).
+  /// [level] indicates the severity level of the message (e.g., info, warning, error).
   /// [data] is optional additional structured data to associate with the message.
   void captureMessage(
     String message, {
-    Severity severity = Severity.info,
+    Level level = Level.info,
     Map<String, dynamic>? data,
   });
 
