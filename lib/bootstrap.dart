@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_error_reporting/flutter_error_reporting.dart';
-import 'package:flutter_logger/source/application_logger.dart';
+import 'package:flutter_logger/flutter_logger.dart';
 import 'package:yandex_eats_clone_application/application_bloc_observer.dart';
 
 /// {@template bootstrap}
@@ -24,7 +24,7 @@ Future<void> bootstrap({
   Initializer? onInitialize,
 }) async {
   FlutterError.onError = (details) {
-    ApplicationLogger.instance.error(
+    Logger.instance.error(
       'Caught Flutter framework error:',
       error: details.exception,
       stackTrace: details.stack,
@@ -45,7 +45,7 @@ Future<void> bootstrap({
       runApp(await applicationBuilder());
     },
     (error, stack) {
-      ApplicationLogger.instance.fatal(
+      Logger.instance.fatal(
         'Caught unhandled error in runZonedGuarded:',
         error: error,
         stackTrace: stack,

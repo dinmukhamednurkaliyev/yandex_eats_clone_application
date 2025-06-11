@@ -4,7 +4,7 @@ import 'package:flutter_logger/flutter_logger.dart';
 
 /// {@template application_bloc_observer}
 /// Observes all BLoC events, changes, and errors,
-/// logging them using [ApplicationLogger] and reporting critical errors
+/// logging them using [Logger] and reporting critical errors
 /// via [ErrorReporterService].
 /// {@endtemplate}
 class ApplicationBlocObserver extends BlocObserver {
@@ -21,7 +21,7 @@ class ApplicationBlocObserver extends BlocObserver {
   @override
   void onChange(BlocBase<dynamic> bloc, Change<dynamic> change) {
     super.onChange(bloc, change);
-    ApplicationLogger.instance.debug(
+    Logger.instance.debug(
       'onChange(${bloc.runtimeType}, Current: ${change.currentState.runtimeType}, Next: ${change.nextState.runtimeType})',
     );
     _errorReporter.addBreadcrumb(
@@ -40,7 +40,7 @@ class ApplicationBlocObserver extends BlocObserver {
   @override
   void onClose(BlocBase<dynamic> bloc) {
     super.onClose(bloc);
-    ApplicationLogger.instance.debug('onClose(${bloc.runtimeType})');
+    Logger.instance.debug('onClose(${bloc.runtimeType})');
     _errorReporter.addBreadcrumb(
       Breadcrumb(
         message: 'Bloc Closed',
@@ -53,7 +53,7 @@ class ApplicationBlocObserver extends BlocObserver {
   @override
   void onCreate(BlocBase<dynamic> bloc) {
     super.onCreate(bloc);
-    ApplicationLogger.instance.debug('onCreate(${bloc.runtimeType})');
+    Logger.instance.debug('onCreate(${bloc.runtimeType})');
     _errorReporter.addBreadcrumb(
       Breadcrumb(
         message: 'Bloc Created',
@@ -66,7 +66,7 @@ class ApplicationBlocObserver extends BlocObserver {
   @override
   void onError(BlocBase<dynamic> bloc, Object error, StackTrace stackTrace) {
     // 1. Log the error to the console using ApplicationLogger for development visibility.
-    ApplicationLogger.instance.error(
+    Logger.instance.error(
       'onError(${bloc.runtimeType})',
       error: error,
       stackTrace: stackTrace,
@@ -82,9 +82,7 @@ class ApplicationBlocObserver extends BlocObserver {
   @override
   void onEvent(Bloc<dynamic, dynamic> bloc, Object? event) {
     super.onEvent(bloc, event);
-    ApplicationLogger.instance.debug(
-      'onEvent(${bloc.runtimeType}, ${event.runtimeType})',
-    );
+    Logger.instance.debug('onEvent(${bloc.runtimeType}, ${event.runtimeType})');
     _errorReporter.addBreadcrumb(
       Breadcrumb(
         message: 'Bloc Event Dispatched',
@@ -103,7 +101,7 @@ class ApplicationBlocObserver extends BlocObserver {
     Transition<dynamic, dynamic> transition,
   ) {
     super.onTransition(bloc, transition);
-    ApplicationLogger.instance.debug(
+    Logger.instance.debug(
       'onTransition(${bloc.runtimeType}, Event: ${transition.event.runtimeType}, Current: ${transition.currentState.runtimeType}, Next: ${transition.nextState.runtimeType})',
     );
     _errorReporter.addBreadcrumb(
