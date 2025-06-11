@@ -67,7 +67,6 @@ class ApplicationBootstrapper {
     required ApplicationBuilder applicationBuilder,
     Initializer? onInitialize,
   }) async {
-    WidgetsFlutterBinding.ensureInitialized();
     FlutterError.onError = (details) {
       Logger.instance.error(
         'Caught Flutter framework error:',
@@ -82,6 +81,7 @@ class ApplicationBootstrapper {
 
     await runZonedGuarded(
       () async {
+        WidgetsFlutterBinding.ensureInitialized();
         Bloc.observer = _blocObserver;
         await onInitialize?.call();
         runApp(await applicationBuilder());
