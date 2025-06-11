@@ -1,0 +1,23 @@
+name: flutter_bootstrapper
+description: "Core bootstrapping and foundational utilities for Flutter applications"
+version: 0.0.1
+publish_to: 'none'
+
+environment:
+  sdk: ^3.8.1
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^9.1.1
+  flutter_error_reporting:
+    path: ../flutter_error_reporting
+  flutter_logger:
+    path: ../flutter_logger
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  yandex_flutter_analysis:
+    path: ../yandex/yandex_flutter_analysis
