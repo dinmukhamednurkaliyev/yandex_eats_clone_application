@@ -1,6 +1,7 @@
 name: flutter_logger
 description: "A simple, structured logger for Flutter applications"
 version: 0.0.1
+publish_to: 'none'
 
 environment:
   sdk: ^3.8.0
